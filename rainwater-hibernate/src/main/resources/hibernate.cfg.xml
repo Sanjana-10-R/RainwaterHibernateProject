@@ -1,0 +1,39 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+ "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+ "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Database Connection -->
+        <property name="hibernate.connection.driver_class">
+            oracle.jdbc.driver.OracleDriver
+        </property>
+
+        <property name="hibernate.connection.url">
+            jdbc:oracle:thin:@localhost:1521:xe
+        </property>
+
+        <property name="hibernate.connection.username">system</property>
+        <property name="hibernate.connection.password">sanjanarr10</property>
+
+        <!-- Dialect -->
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.OracleDialect
+        </property>
+
+        <!-- ⭐ IMPORTANT CHANGE -->
+        <!-- This stops Hibernate from altering tables -->
+        <property name="hibernate.hbm2ddl.auto">none</property>
+
+        <!-- Show SQL -->
+        <property name="hibernate.show_sql">false</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Entity Mapping -->
+        <mapping class="com.rainwater.entity.Tank"/>
+        <mapping class="com.rainwater.entity.MaintVisit"/>
+        <mapping class="com.rainwater.entity.MaintReport"/>
+
+    </session-factory>
+</hibernate-configuration>
